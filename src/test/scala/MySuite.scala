@@ -9,7 +9,8 @@ object MySuite extends SimpleIOSuite {
     for {
       x <- random
       y <- random
-      _ = expect.same(false, true).failFast
+      _ = expect.same(false, true).failFast // <- this should use `<-` instead of `=`
+      _ = IO.println("foo")
     } yield expect(x != y)
   }
 }
